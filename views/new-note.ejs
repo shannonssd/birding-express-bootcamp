@@ -10,10 +10,20 @@
     <form action="/note" method="POST">
       <label for="Date">Date:</label>
       <input type="text" id="Date" name="date" required /><br/><br/>
-      <label for="Behaviour">Behaviour:</label>
-      <input type="text" name="behaviour" id="Behaviour" required/><br/><br/>
+      <!-- <label for="Behaviour">Behaviour:</label>
+      <input type="text" name="behaviour" id="Behaviour" required/><br/><br/> -->
       <label for="Flock Size">Flock Size<requiredlabel>
       <input type="text" id="Flock Size" name="flock_size" required/><br/><br/>
+      <select name="species" id="species">
+        <% species.forEach((element) => { %>
+          <option value="<%= element.id %>"><%= element.name %></option>
+        <% }); %>
+      </select><br/><br/>
+      Behaviour:<br/>
+       <% behaviour.forEach((element) => { %>
+          <label for="behaviour"><%= element.behaviour %></label>
+          <input type="checkbox" name="behaviour" value="<%= element.id %>">
+        <% }); %><br/><br/>
       <input type="submit" value="Submit!">
     </form>
   </body>
